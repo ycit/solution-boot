@@ -1,0 +1,6 @@
+rootProject.name = 'solution-boot'
+include 'mybatis'
+include 'hibernate'
+include 'jpa'
+include 'core'
+

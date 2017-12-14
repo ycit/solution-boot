@@ -1,0 +1,26 @@
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    group 'com.ycit'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'war'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = "UTF-8"
+
+    dependencies {
+        compile(
+                "org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE",
+        )
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+}

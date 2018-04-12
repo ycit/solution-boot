@@ -1,20 +1,24 @@
-package com.ycit.domain.entity;
+package com.ycit.entity;
+
+import javax.persistence.*;
 
 /**
- * POJO
+ * user entity
  *
  * @author xlch
- * @Date 2017-12-14 10:47
+ * @Date 2017-12-21 11:02
  */
-//@Entity
+
+@Entity
+@Table(name = "user")
 public class User {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private String email;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public long getId() {
         return id;
     }

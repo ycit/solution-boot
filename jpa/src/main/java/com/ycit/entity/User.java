@@ -13,17 +13,32 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String name;
+
     private String email;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public long getId() {
+    public User() {
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User(long id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

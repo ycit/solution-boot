@@ -5,7 +5,9 @@ import com.ycit.domain.vo.ApiResponse;
 import com.ycit.entity.User;
 import com.ycit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +29,12 @@ public class UserController extends BaseController{
     public ApiResponse<User> users() {
         List<User> users = userService.finds();
         return success(users, users.size());
+    }
+
+
+    @GetMapping("wrong1")
+    public int wrong1(@RequestParam("name") String name) {
+        return userService.createUserWrong1(name);
     }
 
 }
